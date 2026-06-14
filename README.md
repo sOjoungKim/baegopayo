@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 배고파요 🐾
 
-## Getting Started
+> 닥스훈트가 배달해드려요!
 
-First, run the development server:
+배달의 민족 스타일 음식 배달 플랫폼입니다.  
+닥스훈트 마스코트와 함께하는 귀여운 배달앱이에요.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+🌐 **[배고파요 바로가기](https://baegopayo.vercel.app)**
+
+---
+
+## 🌭 주요 기능
+
+- 🔐 회원가입 / 로그인 / 로그아웃
+- 🍽️ 식당 · 메뉴 목록 (카테고리 필터)
+- 🛒 장바구니 담기 (한 매장만 가능)
+- 📦 주문하기 (배송 주소 · 결제 방식 · 요청사항)
+- 📋 주문 내역 보기
+
+---
+
+## 🛠️ 기술 스택
+
+| 분류 | 기술 |
+|---|---|
+| 프레임워크 | Next.js 16 (App Router) |
+| 데이터베이스 | Neon PostgreSQL |
+| 인증 | JWT + bcrypt |
+| 배포 | Vercel |
+
+---
+
+## 🗄️ DB 구조
+
+```
+users        → 회원 정보
+categories   → 음식 카테고리
+restaurants  → 식당
+menus        → 메뉴
+cart_items   → 장바구니
+orders       → 주문 헤더
+order_items  → 주문 상세
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🚀 로컬 실행
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+# 패키지 설치
+npm install
 
-## Learn More
+# 환경변수 설정
+cp .env.example .env.local
+# DATABASE_URL, JWT_SECRET 입력
 
-To learn more about Next.js, take a look at the following resources:
+# DB 초기화
+node scripts/init-db.js
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# 개발 서버 실행
+npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🐾
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+*컴퓨터과학개론 기말 프로젝트 — 2026*
