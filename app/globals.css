@@ -1,26 +1,87 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --brown: #D4622A;
+  --yellow: #F5C842;
+  --cream: #FFFDF7;
+  --beige: #F2EDE6;
+  --text: #1A1A1A;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--cream);
+  color: var(--text);
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+}
+
+.btn-primary {
+  background-color: var(--brown);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 12px;
+  border: none;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  width: 100%;
+  transition: opacity 0.2s;
+}
+
+.btn-primary:hover {
+  opacity: 0.85;
+}
+
+.btn-yellow {
+  background-color: var(--yellow);
+  color: var(--text);
+  padding: 12px 24px;
+  border-radius: 12px;
+  border: none;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  width: 100%;
+  transition: opacity 0.2s;
+}
+
+.btn-yellow:hover {
+  opacity: 0.85;
+}
+
+.card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+}
+
+/* 닥스훈트 워킹 애니메이션 */
+@keyframes walkRight {
+  0% { transform: translateX(-150px) scaleX(1); }
+  45% { transform: translateX(calc(100vw + 150px)) scaleX(1); }
+  50% { transform: translateX(calc(100vw + 150px)) scaleX(-1); }
+  95% { transform: translateX(-150px) scaleX(-1); }
+  100% { transform: translateX(-150px) scaleX(1); }
+}
+
+.dax-walking {
+  position: fixed;
+  bottom: 20px;
+  left: 0;
+  width: 120px;
+  height: auto;
+  animation: walkRight 12s linear infinite;
+  z-index: 1000;
+  pointer-events: none;
 }
